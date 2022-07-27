@@ -8,11 +8,11 @@ import { links } from "../data/dummy";
 import { useStateContext } from "../contexts/ContextProvider";
 
 const Sidebar = () => {
-  const { activeMenu, setActiveMenu, screenSiize, currentColor } =
+  const { activeMenu, setActiveMenu, screenSize, currentColor } =
     useStateContext();
 
-  const handleCLoseSideBar = () => {
-    if (activeMenu && screenSiize <= 900) {
+  const handleCloseSideBar = () => {
+    if (activeMenu && screenSize <= 900) {
       setActiveMenu(false);
     }
   };
@@ -29,7 +29,7 @@ const Sidebar = () => {
             <Link
               to="/"
               className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900"
-              onClick={handleCLoseSideBar}
+              onClick={handleCloseSideBar}
             >
               <SiShopware /> <span>Lekkss</span>
             </Link>
@@ -53,7 +53,7 @@ const Sidebar = () => {
                   <NavLink
                     to={`/${link.name}`}
                     key={link.name}
-                    onClick={handleCLoseSideBar}
+                    onClick={handleCloseSideBar}
                     style={({ isActive }) => ({
                       backgroundColor: isActive ? currentColor : "",
                     })}
